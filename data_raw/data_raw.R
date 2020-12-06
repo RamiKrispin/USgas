@@ -35,4 +35,4 @@ us_res_gas <- lapply(1:length(monthly), function(i){
   dplyr::bind_rows()
 
 usethis::use_data(us_res_gas, overwrite = TRUE)
-
+write.csv(us_res_gas, "csv/us_res_gas.csv", row.names = FALSE)
