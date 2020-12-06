@@ -25,11 +25,29 @@
 #'
 #' head(us_total)
 #'
+#' at_x <- seq.Date(from = as.Date("1980-01-01"),
+#'                  to = as.Date("2020-01-01"),
+#'                  length.out = 5)
+#'
+#' at_y <- pretty(us_total$y)[c(2, 4, 6)]
+#'
 #' plot(us_total$date, us_total$y,
 #'      col = "#1f77b4",
 #'      type = "l",
+#'      frame.plot = FALSE,
+#'      axes = FALSE,
+#'      panel.first = abline(h = at_y, col = "grey80"),
 #'      main = "US Natural Gas Residential Consumption",
 #'      xlab = "Source: https://www.eia.gov/",
 #'      ylab = "Million Cubic Feet")
+#'
+#'
+#'
+#' mtext(side =1, text = format(at_x, format = "%Y %b"), at = at_x,
+#'       col = "grey20", line = 1, cex = 0.8)
+#'
+#' mtext(side =2, text = format(at_y, scientific = F), at = at_y,
+#'       col = "grey20", line = 1, cex = 0.8)
+
 
 "us_res_gas"
