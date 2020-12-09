@@ -176,7 +176,77 @@ Units: Million Cubic Feet" />
 </div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/graphics/mtext.html'>mtext</a></span>(side =<span class='fl'>2</span>, text = <span class='fu'><a href='https://rdrr.io/r/base/format.html'>format</a></span>(<span class='kw'>at_y</span>, scientific = <span class='kw'>F</span>), at = <span class='kw'>at_y</span>,
       col = <span class='st'>"grey20"</span>, line = <span class='fl'>1</span>, cex = <span class='fl'>0.8</span>)
-</div><div class='img'><img src='us_res_gas-1.png' alt='' width='700' height='433' /></div></pre>
+</div><div class='img'><img src='us_res_gas-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>### Plotting the west cost consumptions</span>
+<span class='co'># Subsetting the west cost states</span>
+<span class='kw'>wc_gas</span> <span class='op'>&lt;-</span> <span class='kw'>us_res_gas</span>[<span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='kw'>us_res_gas</span><span class='op'>$</span><span class='kw'>state</span> <span class='op'>%in%</span>
+                             <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Alaska"</span>, <span class='st'>"California"</span>,
+                               <span class='st'>"Oregon"</span>, <span class='st'>"Washington"</span>)),]
+
+<span class='co'># Reshape to wide</span>
+<span class='kw'>wc_wide</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/reshape.html'>reshape</a></span>(<span class='kw'>wc_gas</span>, v.names = <span class='st'>"y"</span>, idvar = <span class='st'>"date"</span>,
+                   timevar = <span class='st'>"state"</span>, direction = <span class='st'>"wide"</span>)
+
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>wc_wide</span>) <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"date"</span>,<span class='st'>"Alaska"</span>, <span class='st'>"California"</span>,
+                    <span class='st'>"Oregon"</span>, <span class='st'>"Washington"</span>)
+<span class='co'># Reorder the data</span>
+<span class='kw'>wc_wide</span> <span class='op'>&lt;-</span> <span class='kw'>wc_wide</span>[<span class='fu'><a href='https://rdrr.io/r/base/order.html'>order</a></span>(<span class='kw'>wc_wide</span><span class='op'>$</span><span class='kw'>date</span>), ]
+
+<span class='co'># Set the plot y and x axis ticks</span>
+<span class='kw'>at_x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.Date.html'>seq.Date</a></span>(from = <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span>(<span class='st'>"1990-01-01"</span>),
+                 to = <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span>(<span class='st'>"2020-01-01"</span>),
+                 length.out = <span class='fl'>4</span>)
+
+<span class='kw'>at_y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/pretty.html'>pretty</a></span>(<span class='kw'>wc_gas</span><span class='op'>$</span><span class='kw'>y</span>)[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>4</span>, <span class='fl'>6</span>)]
+
+<span class='co'># plot the first series</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='kw'>wc_wide</span><span class='op'>$</span><span class='kw'>date</span>, <span class='kw'>wc_wide</span><span class='op'>$</span><span class='kw'>Alaska</span>,
+     type = <span class='st'>"l"</span>,
+     frame.plot = <span class='fl'>FALSE</span>,
+     axes = <span class='fl'>FALSE</span>,
+     panel.first = <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span>(h = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>at_y</span>), col = <span class='st'>"grey80"</span>),
+     main = <span class='st'>"West Cost Natural Gas Residential Consumption"</span>,
+     cex.main = <span class='fl'>1</span>, font.main = <span class='fl'>1</span>, col.main = <span class='st'>"black"</span>,
+     xlab = <span class='st'>"Source: https://www.eia.gov/"</span>,
+     font.axis = <span class='fl'>1</span>, cex.lab= <span class='fl'>0.7</span>,
+     ylab = <span class='st'>"Million Cubic Feet"</span>,
+     ylim = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span>(<span class='kw'>wc_gas</span><span class='op'>$</span><span class='kw'>y</span>, na.rm = <span class='fl'>TRUE</span>), <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>wc_gas</span><span class='op'>$</span><span class='kw'>y</span>, na.rm = <span class='fl'>TRUE</span>)))
+</div><div class='input'>
+<span class='co'># Add the 3 other series</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span>(<span class='kw'>wc_wide</span><span class='op'>$</span><span class='kw'>date</span>, <span class='kw'>wc_wide</span><span class='op'>$</span><span class='kw'>California</span>, col = <span class='st'>"#1f77b4"</span>)
+</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span>(<span class='kw'>wc_wide</span><span class='op'>$</span><span class='kw'>date</span>, <span class='kw'>wc_wide</span><span class='op'>$</span><span class='kw'>Oregon</span>, col = <span class='st'>"#457b9d"</span>)
+</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span>(<span class='kw'>wc_wide</span><span class='op'>$</span><span class='kw'>date</span>, <span class='kw'>wc_wide</span><span class='op'>$</span><span class='kw'>Washington</span>, col = <span class='st'>"#ef476f"</span>)
+</div><div class='input'>
+<span class='co'># Add the y and x axis ticks</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/mtext.html'>mtext</a></span>(side =<span class='fl'>1</span>, text = <span class='fu'><a href='https://rdrr.io/r/base/format.html'>format</a></span>(<span class='kw'>at_x</span>, format = <span class='st'>"%Y %b"</span>), at = <span class='kw'>at_x</span>,
+      col = <span class='st'>"grey20"</span>, line = <span class='fl'>1</span>, cex = <span class='fl'>0.8</span>)
+</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/mtext.html'>mtext</a></span>(side =<span class='fl'>2</span>, text = <span class='fu'><a href='https://rdrr.io/r/base/format.html'>format</a></span>(<span class='kw'>at_y</span>, scientific = <span class='kw'>F</span>), at = <span class='kw'>at_y</span>,
+      col = <span class='st'>"grey20"</span>, line = <span class='fl'>1</span>, cex = <span class='fl'>0.8</span>)
+</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span>(<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span>(<span class='kw'>wc_wide</span><span class='op'>$</span><span class='kw'>date</span>, <span class='fl'>10</span>)[<span class='fl'>1</span>],
+     <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>wc_gas</span><span class='op'>$</span><span class='kw'>y</span>, na.rm = <span class='fl'>TRUE</span>),
+     <span class='st'>"California"</span>,
+     col = <span class='st'>"#1f77b4"</span>,
+     cex = <span class='fl'>0.6</span>)
+</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span>(<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span>(<span class='kw'>wc_wide</span><span class='op'>$</span><span class='kw'>date</span>, <span class='fl'>10</span>)[<span class='fl'>1</span>],
+     <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>wc_gas</span><span class='op'>$</span><span class='kw'>y</span>, na.rm = <span class='fl'>TRUE</span>) <span class='op'>-</span> <span class='fl'>5000</span>,
+     <span class='st'>"Washington"</span>,
+     col = <span class='st'>"#ef476f"</span>,
+     cex = <span class='fl'>0.6</span>)
+</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span>(<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span>(<span class='kw'>wc_wide</span><span class='op'>$</span><span class='kw'>date</span>, <span class='fl'>10</span>)[<span class='fl'>1</span>],
+     <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>wc_gas</span><span class='op'>$</span><span class='kw'>y</span>, na.rm = <span class='fl'>TRUE</span>) <span class='op'>-</span> <span class='fl'>10000</span>,
+     <span class='st'>"Oregon"</span>,
+     col = <span class='st'>"#457b9d"</span>,
+     cex = <span class='fl'>0.6</span>)
+</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span>(<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span>(<span class='kw'>wc_wide</span><span class='op'>$</span><span class='kw'>date</span>, <span class='fl'>10</span>)[<span class='fl'>1</span>],
+     <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>wc_gas</span><span class='op'>$</span><span class='kw'>y</span>, na.rm = <span class='fl'>TRUE</span>) <span class='op'>-</span> <span class='fl'>15000</span>,
+     <span class='st'>"Alaska"</span>,
+     col = <span class='st'>"black"</span>,
+     cex = <span class='fl'>0.6</span>)
+</div><div class='img'><img src='us_res_gas-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
