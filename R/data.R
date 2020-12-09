@@ -49,5 +49,51 @@
 #' mtext(side =2, text = format(at_y, scientific = F), at = at_y,
 #'       col = "grey20", line = 1, cex = 0.8)
 
+#' ### Plotting the west cost consumptions
+#' # Subsetting the west cost states
+#' wc_gas <- us_res_gas[which(us_res_gas$state %in%
+#'                              c("Alaska", "California",
+#'                                "Oregon", "Washington")),]
+#'
+#' # Reshape to wide
+#' wc_wide <- reshape(wc_gas, v.names = "y", idvar = "date",
+#'                    timevar = "state", direction = "wide")
+#'
+#' names(wc_wide) <- c("date","Alaska", "California",
+#'                     "Oregon", "Washington")
+#' # Reorder the data
+#' wc_wide <- wc_wide[order(wc_wide$date), ]
+#'
+#' # Set the plot y and x axis ticks
+#' at_x <- seq.Date(from = as.Date("1990-01-01"),
+#'                  to = as.Date("2020-01-01"),
+#'                  length.out = 4)
+#'
+#' at_y <- pretty(wc_gas$y)[c(2, 4, 6)]
+#'
+#' # plot the first series
+#' plot(wc_wide$date, wc_wide$Alaska,
+#'      type = "l",
+#'      frame.plot = FALSE,
+#'      axes = FALSE,
+#'      panel.first = abline(h = c(at_y), col = "grey80"),
+#'      main = "West Cost Natural Gas Residential Consumption",
+#'      cex.main = 1, font.main = 1, col.main = "black",
+#'      xlab = "Source: https://www.eia.gov/",
+#'      font.axis = 1, cex.lab= 0.7,
+#'      ylab = "Million Cubic Feet",
+#'      ylim = c(min(wc_gas$y, na.rm = TRUE), max(wc_gas$y, na.rm = TRUE)))
+#'
+#' # Add the 3 other series
+#' lines(wc_wide$date, wc_wide$California, col = "#1f77b4")
+#' lines(wc_wide$date, wc_wide$Oregon, col = "#457b9d")
+#' lines(wc_wide$date, wc_wide$Washington, col = "#ef476f")
+#'
+#' # Add the y and x axis ticks
+#' mtext(side =1, text = format(at_x, format = "%Y %b"), at = at_x,
+#'       col = "grey20", line = 1, cex = 0.8)
+#'
+#' mtext(side =2, text = format(at_y, scientific = F), at = at_y,
+#'       col = "grey20", line = 1, cex = 0.8)
 
 "us_res_gas"
