@@ -106,6 +106,30 @@ mtext(side =1, text = format(at_x, format = "\%Y \%b"), at = at_x,
 
 mtext(side =2, text = format(at_y, scientific = F), at = at_y,
       col = "grey20", line = 1, cex = 0.8)
+
+text(tail(wc_wide$date, 10)[1],
+     max(wc_gas$y, na.rm = TRUE),
+     "California",
+     col = "#1f77b4",
+     cex = 0.6)
+
+text(tail(wc_wide$date, 10)[1],
+     max(wc_gas$y, na.rm = TRUE) - 5000,
+     "Washington",
+     col = "#ef476f",
+     cex = 0.6)
+
+text(tail(wc_wide$date, 10)[1],
+     max(wc_gas$y, na.rm = TRUE) - 10000,
+     "Oregon",
+     col = "#457b9d",
+     cex = 0.6)
+
+text(tail(wc_wide$date, 10)[1],
+     max(wc_gas$y, na.rm = TRUE) - 15000,
+     "Alaska",
+     col = "black",
+     cex = 0.6)
 }
 \keyword{datasets}
 \keyword{gas}
