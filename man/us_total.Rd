@@ -5,7 +5,7 @@
 \alias{us_total}
 \title{US Annual Total Natural Gas Consumption}
 \format{
-A data.frame with 3 variables.
+A data.frame with 2 variables.
 \describe{
   \item{year}{An integer, the year of the observation}
   \item{state}{A character, the US state indicator}
@@ -24,7 +24,7 @@ The dataset provides information on the US annual natural gas consumption by sta
 Units: Million Cubic Feet
 }
 \details{
-The dataset contains monthly summary of the total annual demand for natural gas in the US by state and total aggregate level. The data is available for the state level between 1997 and 2019, and for the US level between 1949 and 2019.
+The dataset contains a summary of the total annual demand for natural gas in the US by state and total aggregate level. The data is available for the state level between 1997 and 2019, and for the US level between 1949 and 2019.
 }
 \examples{
 data("us_total")

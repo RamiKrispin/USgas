@@ -7,7 +7,7 @@
 \format{
 A data.frame with 3 variables.
 \describe{
-  \item{date}{A Date, the month and year of the observation (the day set by default to 1st of the month) }
+  \item{date}{A Date, the month and year of the observation (the day set by default to 1st of the month)}
   \item{state}{A character, the US state indicator}
   \item{y}{A numeric, the monthly natural gas residential consumption in a million cubic feet}
   }

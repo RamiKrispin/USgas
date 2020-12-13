@@ -6,7 +6,7 @@
 #'
 #' @format A data.frame with 3 variables.
 #' \describe{
-#'   \item{date}{A Date, the month and year of the observation (the day set by default to 1st of the month) }
+#'   \item{date}{A Date, the month and year of the observation (the day set by default to 1st of the month)}
 #'   \item{state}{A character, the US state indicator}
 #'   \item{y}{A numeric, the monthly natural gas residential consumption in a million cubic feet}
 #'   }
@@ -129,7 +129,7 @@
 #' Units: Million Cubic Feet
 #'
 #'
-#' @format A data.frame with 3 variables.
+#' @format A data.frame with 2 variables.
 #' \describe{
 #'   \item{year}{An integer, the year of the observation}
 #'   \item{state}{A character, the US state indicator}
@@ -137,7 +137,7 @@
 #'   }
 #' @source US Energy Information Administration (EIA) \href{https://www.eia.gov/}{website}.
 #' @keywords datasets timeseries natural gas us state
-#' @details The dataset contains monthly summary of the total annual demand for natural gas in the US by state and total aggregate level. The data is available for the state level between 1997 and 2019, and for the US level between 1949 and 2019.
+#' @details The dataset contains a summary of the total annual demand for natural gas in the US by state and total aggregate level. The data is available for the state level between 1997 and 2019, and for the US level between 1949 and 2019.
 #'
 #' @examples
 #' data("us_total")
@@ -261,3 +261,51 @@
 #'      cex = 0.7)
 
 "us_total"
+
+#' US Monthly Total Natural Gas Consumption
+#' @description The dataset provides information about the total monthly natural gas consumption in the US between 2001 and 2020
+#'
+#' Units: Million Cubic Feet
+#'
+#'
+#' @format A data.frame with 2 variables.
+#' \describe{
+#'   \item{date}{A Date, the month and year of the observation (the day set by default to 1st of the month)}
+#'   \item{y}{A numeric, the US monthly total natural gas consumption in a million cubic feet}
+#'   }
+#' @source US Energy Information Administration (EIA) \href{https://www.eia.gov/}{website}.
+#' @keywords datasets timeseries natural gas us state
+#' @details The dataset contains monthly summary of the total demand for natural gas in the US between 2001 and 2020.
+#'
+#' @examples
+#'
+#' data("us_monthly")
+#'
+#' head(us_monthly)
+#'
+#' at_x <- seq.Date(from = as.Date("2000-01-01"),
+#'                  to = as.Date("2020-01-01"),
+#'                  by = "5 years")
+#'
+#' at_y <- pretty(us_monthly$y)[c(2, 4, 6)]
+#'
+#' plot(us_monthly$date, us_monthly$y,
+#'      col = "#1f77b4",
+#'      type = "l",
+#'      frame.plot = FALSE,
+#'      axes = FALSE,
+#'      panel.first = abline(h = at_y, col = "grey80"),
+#'      main = "US Total Natural Gas Consumption",
+#'      xlab = "Source: https://www.eia.gov/",
+#'      ylab = "Million Cubic Feet")
+#'
+#'
+#'
+#' mtext(side =1, text = format(at_x, format = "%Y"), at = at_x,
+#'       col = "grey20", line = 1, cex = 0.8)
+#'
+#' mtext(side =2, text = format(at_y, scientific = FALSE), at = at_y,
+#'       col = "grey20", line = 1, cex = 0.8)
+#'
+
+"us_monthly"
