@@ -3,3 +3,4 @@
 ^README\.Rmd$
 ^csv$
 ^data_raw$
+^LICENSE\.md$
