@@ -111,37 +111,37 @@ mtext(side =2, text = format(at_y, scientific = FALSE), at = at_y,
       col = "grey20", line = 1, cex = 0.8)
 
 
-text(max(wc_wide$year) + 2,
+text(max(ne_wide$year) + 2,
      tail(ne_wide$Connecticut,1),
      "Connecticut",
      col = "#073b4c",
      cex = 0.7)
 
-text(max(wc_wide$year) + 2,
-     tail(ne_wide$Maine,1),
+text(max(ne_wide$year) + 2,
+     tail(ne_wide$Maine,1) * 0.95,
      "Maine",
      col = "#1f77b4",
      cex = 0.7)
 
-text(max(wc_wide$year) + 2,
+text(max(ne_wide$year) + 2,
      tail(ne_wide$Massachusetts,1),
      "Massachusetts",
      col = "#118ab2",
      cex = 0.7)
 
-text(max(wc_wide$year) + 2,
+text(max(ne_wide$year) + 2,
      tail(ne_wide$`New Hampshire`,1) * 1.1,
      "New Hampshire",
      col = "#06d6a0",
      cex = 0.7)
 
-text(max(wc_wide$year) + 2,
-     tail(ne_wide$`Rhode Island`,1),
+text(max(ne_wide$year) + 2,
+     tail(ne_wide$`Rhode Island`,1) * 1.05,
      "Rhode Island",
      col = "#ffd166",
      cex = 0.7)
 
-text(max(wc_wide$year) + 2,
+text(max(ne_wide$year) + 2,
      tail(ne_wide$Vermont,1),
      "Vermont",
      col = "#ef476f",
