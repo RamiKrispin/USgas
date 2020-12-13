@@ -34,8 +34,10 @@ us_residential <- lapply(1:length(monthly), function(i){
     dplyr::select(date, state, y)
 
 }) %>%
-  dplyr::bind_rows()
+  dplyr::bind_rows() %>%
+  dplyr::arrange(state, date)
 
+head(us_residential)
 usethis::use_data(us_residential, overwrite = TRUE)
 write.csv(us_residential, "csv/us_residential.csv", row.names = FALSE)
 
