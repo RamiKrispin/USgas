@@ -31,19 +31,19 @@ data("us_residential")
 
 # Subsetting the total consumption in the US
 
-us_total <- us_residential[which(us_residential$state == "U.S."),]
+us_res_total <- us_residential[which(us_residential$state == "U.S."),]
 
-us_total <- us_total[order(us_total$date), ]
+us_res_total <- us_res_total[order(us_res_total$date), ]
 
-head(us_total)
+head(us_res_total)
 
 at_x <- seq.Date(from = as.Date("1980-01-01"),
                  to = as.Date("2020-01-01"),
                  length.out = 5)
 
-at_y <- pretty(us_total$y)[c(2, 4, 6)]
+at_y <- pretty(us_res_total$y)[c(2, 4, 6)]
 
-plot(us_total$date, us_total$y,
+plot(us_res_total$date, us_res_total$y,
      col = "#1f77b4",
      type = "l",
      frame.plot = FALSE,
