@@ -16,3 +16,7 @@ Depends:
 RoxygenNote: 7.1.1
 URL: https://github.com/RamiKrispin/USgas
 BugReports: https://github.com/RamiKrispin/USgas/issues
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
