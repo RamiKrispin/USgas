@@ -46,6 +46,9 @@ series_details$f
 annual <- series_details$series_id[which(series_details$f == "A")]
 annual
 
+us_monthly <- series_details$series_id[which(series_details$f == "M")]
+
+
 us_total <- lapply(1:length(annual), function(i){
   id <- annual[i]
   series_name <- series_details$name[which(series_details$series_id == id)]
@@ -65,7 +68,35 @@ us_total <- lapply(1:length(annual), function(i){
     dplyr::select(year, state, y)
 
 }) %>%
-  dplyr::bind_rows()
+  dplyr::bind_rows() %>%
+  dplyr::arrange(state, year)
 
-usethis::use_data(us_res_gas, overwrite = TRUE)
-write.csv(us_res_gas, "csv/us_res_gas.csv", row.names = FALSE)
+head(us_total)
+usethis::use_data(us_total, overwrite = TRUE)
+write.csv(us_res_gas, "csv/us_total.csv", row.names = FALSE)
+
+
+# US total consumption ----
+id <- us_monthly
+series_name <- series_details$name[which(series_details$series_id == id)]
+state <- substr(series_name, 1, regexpr("Natural Gas", text = series_name) - 2)
+url <- paste("curl --location --request GET 'http://api.eia.gov/series/?api_key=",
+             api_key,
+             "&series_id=",
+             id,
+             "' | jq -r '.series[].data[] | [.[0], .[1]] | @tsv'",
+             sep = "")
+
+us_monthly <- data.table::fread(cmd = url,
+                                na.strings= NULL,
+                                col.names = c("date", "y"))  %>%
+  as.data.frame %>%
+  dplyr::mutate(date = lubridate::ymd(paste(date, "01", sep = ""))) %>%
+  dplyr::select(date, y) %>%
+  dplyr::arrange(date)
+head(us_monthly)
+
+plot(x = us_monthly$date, y = us_monthly$y, type = "l")
+
+usethis::use_data(us_monthly, overwrite = TRUE)
+write.csv(us_res_gas, "csv/us_monthly.csv", row.names = FALSE)
