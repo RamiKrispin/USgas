@@ -15,11 +15,11 @@
 #' @details The dataset contains monthly summary of the demand for natural gas by residential consumers in the US by state and total aggregate level. The data is available for the state level between January 1989 and September 2020, and for the US level between January 1973 and September 2020.
 #'
 #' @examples
-#' data("us_res_gas")
+#' data("us_residential")
 #'
 #' # Subsetting the total consumption in the US
 #'
-#' us_total <- us_res_gas[which(us_res_gas$state == "U.S."),]
+#' us_total <- us_residential[which(us_residential$state == "U.S."),]
 #'
 #' us_total <- us_total[order(us_total$date), ]
 #'
@@ -51,7 +51,7 @@
 #'
 #' ### Plotting the west cost consumption
 #' # Subsetting the west cost states
-#' wc_gas <- us_res_gas[which(us_res_gas$state %in%
+#' wc_gas <- us_residential[which(us_residential$state %in%
 #'                              c("Alaska", "California",
 #'                                "Oregon", "Washington")),]
 #'
@@ -121,4 +121,4 @@
 #'      cex = 0.6)
 
 
-"us_res_gas"
+"us_residential"
