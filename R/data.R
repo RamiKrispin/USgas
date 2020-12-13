@@ -46,9 +46,9 @@
 #' mtext(side =1, text = format(at_x, format = "%Y %b"), at = at_x,
 #'       col = "grey20", line = 1, cex = 0.8)
 #'
-#' mtext(side =2, text = format(at_y, scientific = F), at = at_y,
+#' mtext(side =2, text = format(at_y, scientific = FALSE), at = at_y,
 #'       col = "grey20", line = 1, cex = 0.8)
-
+#'
 #' ### Plotting the west cost consumption
 #' # Subsetting the west cost states
 #' wc_gas <- us_res_gas[which(us_res_gas$state %in%
@@ -93,7 +93,7 @@
 #' mtext(side =1, text = format(at_x, format = "%Y %b"), at = at_x,
 #'       col = "grey20", line = 1, cex = 0.8)
 #'
-#' mtext(side =2, text = format(at_y, scientific = F), at = at_y,
+#' mtext(side =2, text = format(at_y, scientific = FALSE), at = at_y,
 #'       col = "grey20", line = 1, cex = 0.8)
 #'
 #' text(tail(wc_wide$date, 10)[1],
