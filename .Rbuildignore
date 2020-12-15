@@ -5,3 +5,4 @@
 ^docs$
 ^data_raw$
 ^LICENSE\.md$
+^CRAN-RELEASE$
