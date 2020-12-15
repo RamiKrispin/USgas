@@ -5,11 +5,11 @@
 \alias{us_total}
 \title{US Annual Total Natural Gas Consumption}
 \format{
-A data.frame with 2 variables.
+A data.frame with 3 variables.
 \describe{
   \item{year}{An integer, the year of the observation}
   \item{state}{A character, the US state indicator}
-  \item{y}{A numeric, the yearly total natural gas consumption in a million cubic feet by state/US aggregate}
+  \item{y}{A numeric, the yearly total natural gas consumption in a million cubic feet by state or US aggregate}
   }
 }
 \source{
@@ -96,7 +96,7 @@ plot(ne_wide$year, ne_wide$Connecticut,
      ylim = c(min(ne_gas$y, na.rm = TRUE), max(ne_gas$y, na.rm = TRUE)),
      xlim = c(min(ne_gas$year), max(ne_gas$year) + 3))
 
-# Add the 3 other series
+# Add the 5 other series
 lines(ne_wide$year, ne_wide$Maine, col = "#1f77b4")
 lines(ne_wide$year, ne_wide$Massachusetts, col = "#118ab2")
 lines(ne_wide$year, ne_wide$`New Hampshire`, col = "#06d6a0")

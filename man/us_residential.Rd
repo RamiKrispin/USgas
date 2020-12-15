@@ -19,7 +19,7 @@ US Energy Information Administration (EIA) \href{https://www.eia.gov/}{website}.
 us_residential
 }
 \description{
-The dataset provides monthly information on the US monthly natural gas residential consumption by state and aggregate level between 1989 and 2020
+The US monthly consumption of natural gas by residential consumers by state and aggregate level between 1989 and 2020
 
 Units: Million Cubic Feet
 }

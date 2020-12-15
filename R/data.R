@@ -1,5 +1,5 @@
 #' US Monthly Natural Gas Residential Consumption
-#' @description The dataset provides monthly information on the US monthly natural gas residential consumption by state and aggregate level between 1989 and 2020
+#' @description The US monthly consumption of natural gas by residential consumers by state and aggregate level between 1989 and 2020
 #'
 #' Units: Million Cubic Feet
 #'
@@ -129,11 +129,11 @@
 #' Units: Million Cubic Feet
 #'
 #'
-#' @format A data.frame with 2 variables.
+#' @format A data.frame with 3 variables.
 #' \describe{
 #'   \item{year}{An integer, the year of the observation}
 #'   \item{state}{A character, the US state indicator}
-#'   \item{y}{A numeric, the yearly total natural gas consumption in a million cubic feet by state/US aggregate}
+#'   \item{y}{A numeric, the yearly total natural gas consumption in a million cubic feet by state or US aggregate}
 #'   }
 #' @source US Energy Information Administration (EIA) \href{https://www.eia.gov/}{website}.
 #' @keywords datasets timeseries natural gas us state
@@ -209,7 +209,7 @@
 #'      ylim = c(min(ne_gas$y, na.rm = TRUE), max(ne_gas$y, na.rm = TRUE)),
 #'      xlim = c(min(ne_gas$year), max(ne_gas$year) + 3))
 #'
-#' # Add the 3 other series
+#' # Add the 5 other series
 #' lines(ne_wide$year, ne_wide$Maine, col = "#1f77b4")
 #' lines(ne_wide$year, ne_wide$Massachusetts, col = "#118ab2")
 #' lines(ne_wide$year, ne_wide$`New Hampshire`, col = "#06d6a0")
