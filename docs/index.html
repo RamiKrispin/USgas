@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">USgas</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="kw">us_total</span>)
 
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="kw">us_total</span>)
-<span class="co">#&gt; 'data.frame':    1265 obs. of  3 variables:</span>
+<span class="co">#&gt; 'data.frame':    1266 obs. of  3 variables:</span>
 <span class="co">#&gt;  $ year : int  1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 ...</span>
 <span class="co">#&gt;  $ state: chr  "Alabama" "Alabama" "Alabama" "Alabama" ...</span>
 <span class="co">#&gt;  $ y    : int  324158 329134 337270 353614 332693 379343 350345 382367 353156 391093 ...</span>
@@ -186,7 +186,7 @@
 
 <span class="co"># Add the y and x axis ticks</span>
 
-<span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html">mtext</a></span>(side =<span class="fl">1</span>, text = <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span>(<span class="kw">at_x</span>, digits=<span class="fl">0</span>, nsmall=<span class="fl">0</span>), at = <span class="kw">at_x</span>,
+<span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html">mtext</a></span>(side =<span class="fl">1</span>, text = <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span>(<span class="kw">at_x</span>, nsmall=<span class="fl">0</span>), at = <span class="kw">at_x</span>,
       col = <span class="st">"grey20"</span>, line = <span class="fl">1</span>, cex = <span class="fl">0.8</span>)
 
 <span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html">mtext</a></span>(side =<span class="fl">2</span>, text = <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span>(<span class="kw">at_y</span>, scientific = <span class="fl">FALSE</span>), at = <span class="kw">at_y</span>,
@@ -238,6 +238,8 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=USgas">https://​cloud.r-project.org/​package=USgas</a>
+</li>
 <li>Browse source code at <br><a href="https://github.com/RamiKrispin/USgas/">https://​github.com/​RamiKrispin/​USgas/​</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/RamiKrispin/USgas/issues">https://​github.com/​RamiKrispin/​USgas/​issues</a>

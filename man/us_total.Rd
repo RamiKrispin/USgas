@@ -54,7 +54,7 @@ plot(us_agg$year, us_agg$y,
 
 
 
-mtext(side =1, text = format(at_x, digits=0, nsmall=0), at = at_x,
+mtext(side =1, text = format(at_x,  nsmall=0), at = at_x,
       col = "grey20", line = 1, cex = 0.8)
 
 mtext(side =2, text = format(at_y, scientific = FALSE), at = at_y,
@@ -104,7 +104,7 @@ lines(ne_wide$year, ne_wide$`Rhode Island`, col = "#ffd166")
 lines(ne_wide$year, ne_wide$Vermont, col = "#ef476f")
 
 # Add the y and x axis ticks
-mtext(side =1, text = format(at_x, digits=0, nsmall=0), at = at_x,
+mtext(side =1, text = format(at_x, nsmall=0), at = at_x,
       col = "grey20", line = 1, cex = 0.8)
 
 mtext(side =2, text = format(at_y, scientific = FALSE), at = at_y,
