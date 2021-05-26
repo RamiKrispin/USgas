@@ -75,7 +75,7 @@ us_total <- lapply(1:length(annual), function(i){
 
 head(us_total)
 usethis::use_data(us_total, overwrite = TRUE)
-write.csv(us_res_gas, "csv/us_total.csv", row.names = FALSE)
+write.csv(us_total, "csv/us_total.csv", row.names = FALSE)
 
 
 # US total consumption ----
@@ -101,4 +101,4 @@ head(us_monthly)
 plot(x = us_monthly$date, y = us_monthly$y, type = "l")
 
 usethis::use_data(us_monthly, overwrite = TRUE)
-write.csv(us_res_gas, "csv/us_monthly.csv", row.names = FALSE)
+write.csv(us_monthly, "csv/us_monthly.csv", row.names = FALSE)
