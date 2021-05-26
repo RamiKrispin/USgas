@@ -1,3 +1,8 @@
+# USgas 0.1.1
+
+* Fixing CRAN errors - removing the `digits` argument from the `format` function
+* Updating the data - monthly data up-to-date to Feb 21
+
 # USgas 0.1.0
 
 * Added the `us_residential` dataset, describing the US monthly natural gas residential consumption by state and aggregate level
