@@ -54,7 +54,7 @@ Plotting the consumption of natural gas in New England states:
 data(us_total)
 
 str(us_total)
-#> 'data.frame':    1265 obs. of  3 variables:
+#> 'data.frame':    1266 obs. of  3 variables:
 #>  $ year : int  1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 ...
 #>  $ state: chr  "Alabama" "Alabama" "Alabama" "Alabama" ...
 #>  $ y    : int  324158 329134 337270 353614 332693 379343 350345 382367 353156 391093 ...
@@ -124,7 +124,7 @@ lines(ne_wide$year, ne_wide$Vermont, col = "#ef476f")
 
 # Add the y and x axis ticks
 
-mtext(side =1, text = format(at_x, digits=0, nsmall=0), at = at_x,
+mtext(side =1, text = format(at_x, nsmall=0), at = at_x,
       col = "grey20", line = 1, cex = 0.8)
 
 mtext(side =2, text = format(at_y, scientific = FALSE), at = at_y,
