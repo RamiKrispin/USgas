@@ -27,5 +27,47 @@
 #' - Pipeline Fuel Consumption
 #' - Residential Consumption
 #' - Vehicle Fuel Consumption
+#' @export
 #'
 #' @examples
+#'
+#' library(plotly)
+#'
+#' data("usgas")
+#'
+#' head(usgas)
+#'
+#' # Plot the US consumption
+#'
+#' us_df <- usgas[which(usgas$state == "U.S."), ]
+#'
+#' plot_ly(data = us_df,
+#'         x = ~ date,
+#'         y = ~ y,
+#'         color = ~ process,
+#'         type = "scatter",
+#'         mode = "line") |>
+#'   layout(title = "US Monthly Consumption by End Use",
+#'          yaxis = list(title = "MMCF"),
+#'          xaxis = list(title = "Source: EIA Website"),
+#'          legend = list(x = 0, y = 1.05),
+#'          margin = list(l = 50, r = 50, b = 70, t = 60))
+#'
+#'
+#' # Plot the California consumption
+#'
+#' ca_df <- usgas[which(usgas$state == "California"), ]
+#'
+#' plot_ly(data = ca_df,
+#'         x = ~ date,
+#'         y = ~ y,
+#'         color = ~ process,
+#'         type = "scatter",
+#'         mode = "line") |>
+#'   layout(title = "California Monthly Consumption by End Use",
+#'          yaxis = list(title = "MMCF"),
+#'          xaxis = list(title = "Source: EIA Website"),
+#'          legend = list(x = 0, y = 1.05),
+#'          margin = list(l = 50, r = 50, b = 70, t = 60))
+#'
+"usgas"
