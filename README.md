@@ -8,7 +8,7 @@
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/USgas)](https://cran.r-project.org/package=USgas)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![License:
-MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/license/mit/)
 [![GitHub
 commit](https://img.shields.io/github/last-commit/RamiKrispin/USgas)](https://github.com/RamiKrispin/USgas/commit/main)
 
