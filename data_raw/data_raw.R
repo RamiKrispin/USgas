@@ -1,104 +1,82 @@
-# Data pull
-# API Details ----
-# API - https://www.eia.gov
-# API call - http://api.eia.gov/series/?api_key=YOUR_API_KEY_HERE&series_id=SERIES_ID
-# Parameters ----
-`%>%` <- magrittr::`%>%`
-api_key <- Sys.getenv("eia_key")
+# Pulling US Monthly Consumption of Natural Gas
 
-# US residential consumption ----
-category_details <- tsAPI::eia_query(api_key = api_key,category_id = 480585)
-series_details <- category_details$category$childseries
-series_details$f
-monthly <- series_details$series_id[which(series_details$f == "M")]
-monthly
+# Source: https://www.eia.gov/opendata/browser/natural-gas/cons/sum?frequency=monthly&data=value;&facets=product;process;&product=EPG0;&process=VRS;&end=2022-12&sortColumn=period;&sortDirection=desc;
+
+eia_key <- Sys.getenv("eia_key")
+
+years <- 1973:2022
+
+url <- "https://api.eia.gov/v2/natural-gas/cons/sum/data/"
 
 
-us_residential <- lapply(1:length(monthly), function(i){
-  id <- monthly[i]
-  series_name <- series_details$name[which(series_details$series_id == id)]
-  state <- substr(series_name, 1, regexpr("Natural Gas", text = series_name) - 2)
-  url <- paste("curl --location --request GET 'http://api.eia.gov/series/?api_key=",
-               api_key,
-               "&series_id=",
-               id,
-               "' | jq -r '.series[].data[] | [.[0], .[1]] | @tsv'",
-               sep = "")
+# US consumption by sector type
 
-  df <- data.table::fread(cmd = url,
-                          na.strings= NULL,
-                          col.names = c("date", "y"))  %>%
-    as.data.frame %>%
-    dplyr::mutate(date = lubridate::ymd(paste(date, "01", sep = ""))) %>%
-    dplyr::mutate(state = state) %>%
-    dplyr::select(date, state, y)
+usgas_raw <- lapply(years, function(i){
+  print(i)
+  gas_meta <- EIAapi::eia_get(api_key = eia_key ,
+                              api_url = url,
+                              format = "data.frame",
+                              facets = list(process = c("VCS",
+                                                        "VDV",
+                                                        "VEU",
+                                                        "VGL",
+                                                        "VGP",
+                                                        "VGT",
+                                                        "VIN",
+                                                        "VRS"),
+                                            product = "EPG0"),
+                              start = paste(i, "-01", sep = ""),
+                              end = paste(i + 1, "-01", sep = ""),
+                              frequency = "monthly",
+                              length = 5000,
+                              offset = 0)
 
-}) %>%
-  dplyr::bind_rows() %>%
-  dplyr::arrange(state, date)
+  return(gas_meta)
 
-head(us_residential)
-usethis::use_data(us_residential, overwrite = TRUE)
-write.csv(us_residential, "csv/us_residential.csv", row.names = FALSE)
+}) |> dplyr::bind_rows()
 
-# US total consumption ----
-category_details <- tsAPI::eia_query(api_key = api_key,category_id = 480324)
-series_details <- category_details$category$childseries
-series_details$f
-annual <- series_details$series_id[which(series_details$f == "A")]
-annual
+unique(usgas_raw$units)
 
-us_monthly <- series_details$series_id[which(series_details$f == "M")]
-
-
-us_total <- lapply(1:length(annual), function(i){
-  id <- annual[i]
-  series_name <- series_details$name[which(series_details$series_id == id)]
-  state <- substr(series_name, 1, regexpr("Natural Gas", text = series_name) - 2)
-  url <- paste("curl --location --request GET 'http://api.eia.gov/series/?api_key=",
-               api_key,
-               "&series_id=",
-               id,
-               "' | jq -r '.series[].data[] | [.[0], .[1]] | @tsv'",
-               sep = "")
-
-  df <- data.table::fread(cmd = url,
-                          na.strings= NULL,
-                          col.names = c("year", "y"))  %>%
-    as.data.frame %>%
-    dplyr::mutate(state = state) %>%
-    dplyr::select(year, state, y)
-
-}) %>%
-  dplyr::bind_rows() %>%
-  dplyr::arrange(state, year)
-
-head(us_total)
-usethis::use_data(us_total, overwrite = TRUE)
-write.csv(us_total, "csv/us_total.csv", row.names = FALSE)
+usgas_meta <- usgas_raw |>
+  dplyr::select(state_raw = `area-name`) |>
+  dplyr::distinct() |>
+  dplyr::mutate(state_abb = gsub(pattern = "USA-", replacement = "", x = state_raw),
+                state_abb = ifelse(state_abb == "CALIFORNIA", "CA", state_abb),
+                state_abb = ifelse(state_abb == "COLORADO", "CO", state_abb),
+                state_abb = ifelse(state_abb == "OHIO", "OH", state_abb),
+                state_abb = ifelse(state_abb == "NEW YORK", "NY", state_abb),
+                state_abb = ifelse(state_abb == "FLORIDA", "FL", state_abb),
+                state_abb = ifelse(state_abb == "MASSACHUSETTS", "MA", state_abb),
+                state_abb = ifelse(state_abb == "WASHINGTON", "WA", state_abb),
+                state_abb = ifelse(state_abb == "MINNESOTA", "MN", state_abb),
+                state_abb = ifelse(state_abb == "TEXAS", "TX", state_abb),
+                state_abb = ifelse(state_abb == "TEXAS", "TX", state_abb),
+                state_name = state.name[match(state_abb,state.abb)],
+                state_name = ifelse(state_abb == "DC", "District of Columbia", state_name),
+                state_name = ifelse(state_abb == "U.S.", "U.S.", state_name))
 
 
-# US total consumption ----
-id <- us_monthly
-series_name <- series_details$name[which(series_details$series_id == id)]
-state <- substr(series_name, 1, regexpr("Natural Gas", text = series_name) - 2)
-url <- paste("curl --location --request GET 'http://api.eia.gov/series/?api_key=",
-             api_key,
-             "&series_id=",
-             id,
-             "' | jq -r '.series[].data[] | [.[0], .[1]] | @tsv'",
-             sep = "")
 
-us_monthly <- data.table::fread(cmd = url,
-                                na.strings= NULL,
-                                col.names = c("date", "y"))  %>%
-  as.data.frame %>%
-  dplyr::mutate(date = lubridate::ymd(paste(date, "01", sep = ""))) %>%
-  dplyr::select(date, y) %>%
-  dplyr::arrange(date)
-head(us_monthly)
+usgas <- usgas_raw |>
+  dplyr::mutate(date = as.Date(paste(period, "-01", sep = ""))) |>
+  dplyr::select(date, state_raw = `area-name`,
+                # process,
+                process = `process-name`,
+                y = value) |>
+  dplyr::left_join(usgas_meta |>
+                     dplyr::select(state_raw, state = state_name, state_abb),
+                   by = "state_raw") |>
+  dplyr::select(-state_raw) |>
+  dplyr::select(date, process, state, state_abb, y) |>
+  dplyr::arrange(date, process)
 
-plot(x = us_monthly$date, y = us_monthly$y, type = "l")
+head(usgas)
 
-usethis::use_data(us_monthly, overwrite = TRUE)
-write.csv(us_monthly, "csv/us_monthly.csv", row.names = FALSE)
+attr(usgas, "units") <- "MMCF"
+attr(usgas, "product_name") <- "Natural Gas"
+attr(usgas, "source") <- "EIA API: https://www.eia.gov/opendata/browser/natural-gas"
+
+max(usgas$date)
+
+usethis::use_data(usgas, overwrite = TRUE)
+write.csv(usgas, "./csv/usgas.csv", row.names = FALSE)
