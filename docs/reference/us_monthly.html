@@ -27,7 +27,7 @@ Units: Million Cubic Feet"><!-- mathjax --><script src="https://cdnjs.cloudflare
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -65,7 +65,7 @@ Units: Million Cubic Feet"><!-- mathjax --><script src="https://cdnjs.cloudflare
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="va">us_monthly</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="va">us_monthly</span></code></pre></div>
     </div>
 
     <div id="format">
@@ -89,10 +89,10 @@ Units: Million Cubic Feet"><!-- mathjax --><script src="https://cdnjs.cloudflare
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"us_monthly"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">us_monthly</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"us_monthly"</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">us_monthly</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         date       y</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 2001-01-01 2676998</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 2001-02-01 2309464</span>
@@ -100,32 +100,32 @@ Units: Million Cubic Feet"><!-- mathjax --><script src="https://cdnjs.cloudflare
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 2001-04-01 1807170</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5 2001-05-01 1522382</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6 2001-06-01 1444378</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">at_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.Date.html" class="external-link">seq.Date</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2000-01-01"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                 to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-01-01"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                 by <span class="op">=</span> <span class="st">"5 years"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">at_y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html" class="external-link">pretty</a></span><span class="op">(</span><span class="va">us_monthly</span><span class="op">$</span><span class="va">y</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span><span class="op">]</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">us_monthly</span><span class="op">$</span><span class="va">date</span>, <span class="va">us_monthly</span><span class="op">$</span><span class="va">y</span>,</span></span>
-<span class="r-in"><span>     col <span class="op">=</span> <span class="st">"#1f77b4"</span>,</span></span>
-<span class="r-in"><span>     type <span class="op">=</span> <span class="st">"l"</span>,</span></span>
-<span class="r-in"><span>     frame.plot <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
-<span class="r-in"><span>     axes <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
-<span class="r-in"><span>     panel.first <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span>h <span class="op">=</span> <span class="va">at_y</span>, col <span class="op">=</span> <span class="st">"grey80"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>     main <span class="op">=</span> <span class="st">"US Total Natural Gas Consumption"</span>,</span></span>
-<span class="r-in"><span>     xlab <span class="op">=</span> <span class="st">"Source: https://www.eia.gov/"</span>,</span></span>
-<span class="r-in"><span>     ylab <span class="op">=</span> <span class="st">"Million Cubic Feet"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span>side <span class="op">=</span><span class="fl">1</span>, text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">at_x</span>, format <span class="op">=</span> <span class="st">"%Y"</span><span class="op">)</span>, at <span class="op">=</span> <span class="va">at_x</span>,</span></span>
-<span class="r-in"><span>      col <span class="op">=</span> <span class="st">"grey20"</span>, line <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span>side <span class="op">=</span><span class="fl">2</span>, text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">at_y</span>, scientific <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>, at <span class="op">=</span> <span class="va">at_y</span>,</span></span>
-<span class="r-in"><span>      col <span class="op">=</span> <span class="st">"grey20"</span>, line <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="va">at_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.Date.html" class="external-link">seq.Date</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2000-01-01"</span><span class="op">)</span>,</span>
+<span class="r-in">                 to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-01-01"</span><span class="op">)</span>,</span>
+<span class="r-in">                 by <span class="op">=</span> <span class="st">"5 years"</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="va">at_y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html" class="external-link">pretty</a></span><span class="op">(</span><span class="va">us_monthly</span><span class="op">$</span><span class="va">y</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span><span class="op">]</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">us_monthly</span><span class="op">$</span><span class="va">date</span>, <span class="va">us_monthly</span><span class="op">$</span><span class="va">y</span>,</span>
+<span class="r-in">     col <span class="op">=</span> <span class="st">"#1f77b4"</span>,</span>
+<span class="r-in">     type <span class="op">=</span> <span class="st">"l"</span>,</span>
+<span class="r-in">     frame.plot <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span class="r-in">     axes <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span class="r-in">     panel.first <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span>h <span class="op">=</span> <span class="va">at_y</span>, col <span class="op">=</span> <span class="st">"grey80"</span><span class="op">)</span>,</span>
+<span class="r-in">     main <span class="op">=</span> <span class="st">"US Total Natural Gas Consumption"</span>,</span>
+<span class="r-in">     xlab <span class="op">=</span> <span class="st">"Source: https://www.eia.gov/"</span>,</span>
+<span class="r-in">     ylab <span class="op">=</span> <span class="st">"Million Cubic Feet"</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span>side <span class="op">=</span><span class="fl">1</span>, text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">at_x</span>, format <span class="op">=</span> <span class="st">"%Y"</span><span class="op">)</span>, at <span class="op">=</span> <span class="va">at_x</span>,</span>
+<span class="r-in">      col <span class="op">=</span> <span class="st">"grey20"</span>, line <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span>side <span class="op">=</span><span class="fl">2</span>, text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">at_y</span>, scientific <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>, at <span class="op">=</span> <span class="va">at_y</span>,</span>
+<span class="r-in">      col <span class="op">=</span> <span class="st">"grey20"</span>, line <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="us_monthly-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span></span></span>
+<span class="r-in"></span>
 </code></pre></div>
     </div>
   </div>
@@ -140,7 +140,8 @@ Units: Million Cubic Feet"><!-- mathjax --><script src="https://cdnjs.cloudflare
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.1.</p>
 </div>
 
       </footer></div>

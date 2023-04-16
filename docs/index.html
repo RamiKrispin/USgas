@@ -43,7 +43,7 @@
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -78,16 +78,21 @@
       </header><div class="row">
   <div class="contents col-md-9">
 <div class="section level1">
-<div class="page-header"><h1 id="usgas-">USgas <a href="https://ramikrispin.github.io/USgas/" class="external-link"><img src="reference/figures/USgas.png" align="right" width="150" height="150"></a>
+<div class="page-header"><h1 id="usgas-">USgas
+<a href="https://ramikrispin.github.io/USgas/" class="external-link"><img src="reference/figures/USgas.png" align="right" width="150" height="150"></a>
 <a class="anchor" aria-label="anchor" href="#usgas-"></a>
 </h1></div>
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>The <strong>USgas</strong> package provides an overview of demand for natural gas in the US in a time-series format. That includes the following dataset:</p>
+<p>The <strong>USgas</strong> package provides an overview of demand for
+natural gas in the US in a time-series format. That includes the
+following dataset:</p>
 <ul>
 <li>
-<p><code>usgas</code> - The monthly consumption of natural gas in the US/state level by end-use since 1973 for US level and 1989 for state level. It includes the following end-use categories:</p>
+<p><code>usgas</code> - The monthly consumption of natural gas in
+the US/state level by end-use since 1973 for US level and 1989 for state
+level. It includes the following end-use categories:</p>
 <ul>
 <li>Commercial Consumption</li>
 <li>Delivered to Consumers</li>
@@ -100,16 +105,24 @@
 </ul>
 </li>
 </ul>
-<p>The package also includes the following datasets, from previous release:</p>
+<p>The package also includes the following datasets, from previous
+release:</p>
 <ul>
 <li>
-<code>us_total</code> - The US annual natural gas consumption by state-level between 1997 and 2019, and aggregate level between 1949 and 2019</li>
+<code>us_total</code> - The US annual natural gas consumption by
+state-level between 1997 and 2019, and aggregate level between 1949 and
+2019</li>
 <li>
-<code>us_monthly</code> - The monthly demand for natural gas in the US between 2001 and 2020</li>
+<code>us_monthly</code> - The monthly demand for natural gas in the
+US between 2001 and 2020</li>
 <li>
-<code>us_residential</code> - The US monthly natural gas residential consumption by state and aggregate level between 1989 and 2020</li>
+<code>us_residential</code> - The US monthly natural gas residential
+consumption by state and aggregate level between 1989 and 2020</li>
 </ul>
-<p>The <code>us_total</code>, <code>us_monthly</code>, and <code>us_residential</code> can be derived out of the <code>usgas</code> dataset. Therefore, those datasets in the process of deprication and will be removed in the next release to CRAN.</p>
+<p>The <code>us_total</code>, <code>us_monthly</code>, and
+<code>us_residential</code> can be derived out of the <code>usgas</code>
+dataset. Therefore, those datasets in the process of deprication and
+will be removed in the next release to CRAN.</p>
 <p>Data source: The US Energy Information Administration <a href="https://www.eia.gov/" class="external-link">API</a></p>
 <p>More information about the package datasets available on this <a href="https://ramikrispin.github.io/USgas/articles/introduction.html" class="external-link">vignette</a>.</p>
 <div class="section level2">
@@ -117,68 +130,69 @@
 </h2>
 <p>You can install the released version of USgas from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"USgas"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"USgas"</span><span class="op">)</span></code></pre></div>
 <p>And the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"RamiKrispin/USgas"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"RamiKrispin/USgas"</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <p>Let’s load the data:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"usgas"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">usgas</span><span class="op">)</span></span>
-<span><span class="co">#&gt;         date                 process state state_abb      y</span></span>
-<span><span class="co">#&gt; 1 1973-01-01  Commercial Consumption  U.S.      U.S. 392315</span></span>
-<span><span class="co">#&gt; 2 1973-01-01 Residential Consumption  U.S.      U.S. 843900</span></span>
-<span><span class="co">#&gt; 3 1973-02-01  Commercial Consumption  U.S.      U.S. 394281</span></span>
-<span><span class="co">#&gt; 4 1973-02-01 Residential Consumption  U.S.      U.S. 747331</span></span>
-<span><span class="co">#&gt; 5 1973-03-01  Commercial Consumption  U.S.      U.S. 310799</span></span>
-<span><span class="co">#&gt; 6 1973-03-01 Residential Consumption  U.S.      U.S. 648504</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">usgas</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 'data.frame':    92783 obs. of  5 variables:</span></span>
-<span><span class="co">#&gt;  $ date     : Date, format: "1973-01-01" "1973-01-01" ...</span></span>
-<span><span class="co">#&gt;  $ process  : chr  "Commercial Consumption" "Residential Consumption" "Commercial Consumption" "Residential Consumption" ...</span></span>
-<span><span class="co">#&gt;  $ state    : chr  "U.S." "U.S." "U.S." "U.S." ...</span></span>
-<span><span class="co">#&gt;  $ state_abb: chr  "U.S." "U.S." "U.S." "U.S." ...</span></span>
-<span><span class="co">#&gt;  $ y        : int  392315 843900 394281 747331 310799 648504 231943 465867 174258 326313 ...</span></span>
-<span><span class="co">#&gt;  - attr(*, "units")= chr "MMCF"</span></span>
-<span><span class="co">#&gt;  - attr(*, "product_name")= chr "Natural Gas"</span></span>
-<span><span class="co">#&gt;  - attr(*, "source")= chr "EIA API: https://www.eia.gov/opendata/browser/natural-gas"</span></span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"usgas"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">usgas</span><span class="op">)</span>
+<span class="co">#&gt;         date                 process state state_abb      y</span>
+<span class="co">#&gt; 1 1973-01-01  Commercial Consumption  U.S.      U.S. 392315</span>
+<span class="co">#&gt; 2 1973-01-01 Residential Consumption  U.S.      U.S. 843900</span>
+<span class="co">#&gt; 3 1973-02-01  Commercial Consumption  U.S.      U.S. 394281</span>
+<span class="co">#&gt; 4 1973-02-01 Residential Consumption  U.S.      U.S. 747331</span>
+<span class="co">#&gt; 5 1973-03-01  Commercial Consumption  U.S.      U.S. 310799</span>
+<span class="co">#&gt; 6 1973-03-01 Residential Consumption  U.S.      U.S. 648504</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">usgas</span><span class="op">)</span>
+<span class="co">#&gt; 'data.frame':    92783 obs. of  5 variables:</span>
+<span class="co">#&gt;  $ date     : Date, format: "1973-01-01" "1973-01-01" ...</span>
+<span class="co">#&gt;  $ process  : chr  "Commercial Consumption" "Residential Consumption" "Commercial Consumption" "Residential Consumption" ...</span>
+<span class="co">#&gt;  $ state    : chr  "U.S." "U.S." "U.S." "U.S." ...</span>
+<span class="co">#&gt;  $ state_abb: chr  "U.S." "U.S." "U.S." "U.S." ...</span>
+<span class="co">#&gt;  $ y        : int  392315 843900 394281 747331 310799 648504 231943 465867 174258 326313 ...</span>
+<span class="co">#&gt;  - attr(*, "units")= chr "MMCF"</span>
+<span class="co">#&gt;  - attr(*, "product_name")= chr "Natural Gas"</span>
+<span class="co">#&gt;  - attr(*, "source")= chr "EIA API: https://www.eia.gov/opendata/browser/natural-gas"</span></code></pre></div>
 <p>Plotting the residential consumption of natural gas in the US:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com" class="external-link">plotly</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">us_res</span> <span class="op">&lt;-</span> <span class="va">usgas</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">usgas</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"U.S."</span> <span class="op">&amp;</span> <span class="va">usgas</span><span class="op">$</span><span class="va">process</span> <span class="op">==</span> <span class="st">"Residential Consumption"</span><span class="op">)</span>, <span class="op">]</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/plotly/man/plot_ly.html" class="external-link">plot_ly</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">us_res</span>,</span>
-<span>        x <span class="op">=</span> <span class="op">~</span> <span class="va">date</span>,</span>
-<span>        y <span class="op">=</span> <span class="op">~</span> <span class="va">y</span>,</span>
-<span>        type <span class="op">=</span> <span class="st">"scatter"</span>,</span>
-<span>        mode <span class="op">=</span> <span class="st">"line"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">layout</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"US Monthly Residential Consumption"</span>,</span>
-<span>         yaxis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"MMCF"</span><span class="op">)</span>,</span>
-<span>         xaxis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Source: EIA API"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com" class="external-link">plotly</a></span><span class="op">)</span>
+
+<span class="va">us_res</span> <span class="op">&lt;-</span> <span class="va">usgas</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">usgas</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"U.S."</span> <span class="op">&amp;</span> <span class="va">usgas</span><span class="op">$</span><span class="va">process</span> <span class="op">==</span> <span class="st">"Residential Consumption"</span><span class="op">)</span>, <span class="op">]</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/plotly/man/plot_ly.html" class="external-link">plot_ly</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">us_res</span>,
+        x <span class="op">=</span> <span class="op">~</span> <span class="va">date</span>,
+        y <span class="op">=</span> <span class="op">~</span> <span class="va">y</span>,
+        type <span class="op">=</span> <span class="st">"scatter"</span>,
+        mode <span class="op">=</span> <span class="st">"line"</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://rdrr.io/pkg/plotly/man/layout.html" class="external-link">layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"US Monthly Residential Consumption"</span>,
+         yaxis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"MMCF"</span><span class="op">)</span>,
+         xaxis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Source: EIA API"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/us_res.svg" width="100%"></p>
-<p>Plotting the total monthly natural gas delivered in the New England states:</p>
+<p>Plotting the total monthly natural gas delivered in the New England
+states:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">ne</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Connecticut"</span>, <span class="st">"Maine"</span>, <span class="st">"Massachusetts"</span>,</span>
-<span>        <span class="st">"New Hampshire"</span>, <span class="st">"Rhode Island"</span>, <span class="st">"Vermont"</span><span class="op">)</span></span>
-<span><span class="va">ne_gas</span> <span class="op">&lt;-</span>  <span class="va">usgas</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">usgas</span><span class="op">$</span><span class="va">state</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">ne</span> <span class="op">&amp;</span> <span class="va">usgas</span><span class="op">$</span><span class="va">process</span> <span class="op">==</span> <span class="st">"Delivered to Consumers"</span><span class="op">)</span>,<span class="op">]</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/plotly/man/plot_ly.html" class="external-link">plot_ly</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ne_gas</span>,</span>
-<span>        x <span class="op">=</span> <span class="op">~</span> <span class="va">date</span>,</span>
-<span>        y <span class="op">=</span> <span class="op">~</span> <span class="va">y</span>,</span>
-<span>        color <span class="op">=</span> <span class="op">~</span> <span class="va">state</span>,</span>
-<span>        type <span class="op">=</span> <span class="st">"scatter"</span>,</span>
-<span>        mode <span class="op">=</span> <span class="st">"line"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">layout</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Total Natrual Gas Delivered to Consumers in New England States"</span>,</span>
-<span>         yaxis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"MMCF"</span><span class="op">)</span>,</span>
-<span>         xaxis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Source: EIA API"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span class="va">ne</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Connecticut"</span>, <span class="st">"Maine"</span>, <span class="st">"Massachusetts"</span>,
+        <span class="st">"New Hampshire"</span>, <span class="st">"Rhode Island"</span>, <span class="st">"Vermont"</span><span class="op">)</span>
+<span class="va">ne_gas</span> <span class="op">&lt;-</span>  <span class="va">usgas</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">usgas</span><span class="op">$</span><span class="va">state</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">ne</span> <span class="op">&amp;</span> <span class="va">usgas</span><span class="op">$</span><span class="va">process</span> <span class="op">==</span> <span class="st">"Delivered to Consumers"</span><span class="op">)</span>,<span class="op">]</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/plotly/man/plot_ly.html" class="external-link">plot_ly</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ne_gas</span>,
+        x <span class="op">=</span> <span class="op">~</span> <span class="va">date</span>,
+        y <span class="op">=</span> <span class="op">~</span> <span class="va">y</span>,
+        color <span class="op">=</span> <span class="op">~</span> <span class="va">state</span>,
+        type <span class="op">=</span> <span class="st">"scatter"</span>,
+        mode <span class="op">=</span> <span class="st">"line"</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://rdrr.io/pkg/plotly/man/layout.html" class="external-link">layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Total Natrual Gas Delivered to Consumers in New England States"</span>,
+         yaxis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"MMCF"</span><span class="op">)</span>,
+         xaxis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Source: EIA API"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/new_england.svg" width="100%"></p>
 </div>
 </div>
@@ -238,7 +252,8 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.1.</p>
 </div>
 
       </footer>

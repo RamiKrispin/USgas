@@ -27,7 +27,7 @@ Units: Million Cubic Feet"><!-- mathjax --><script src="https://cdnjs.cloudflare
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -65,7 +65,7 @@ Units: Million Cubic Feet"><!-- mathjax --><script src="https://cdnjs.cloudflare
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="va">us_residential</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="va">us_residential</span></code></pre></div>
     </div>
 
     <div id="format">
@@ -92,15 +92,15 @@ Units: Million Cubic Feet"><!-- mathjax --><script src="https://cdnjs.cloudflare
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"us_residential"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Subsetting the total consumption in the US</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">us_res_total</span> <span class="op">&lt;-</span> <span class="va">us_residential</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">us_residential</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"U.S."</span><span class="op">)</span>,<span class="op">]</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">us_res_total</span> <span class="op">&lt;-</span> <span class="va">us_res_total</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">us_res_total</span><span class="op">$</span><span class="va">date</span><span class="op">)</span>, <span class="op">]</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">us_res_total</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"us_residential"</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="co"># Subsetting the total consumption in the US</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="va">us_res_total</span> <span class="op">&lt;-</span> <span class="va">us_residential</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">us_residential</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"U.S."</span><span class="op">)</span>,<span class="op">]</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="va">us_res_total</span> <span class="op">&lt;-</span> <span class="va">us_res_total</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">us_res_total</span><span class="op">$</span><span class="va">date</span><span class="op">)</span>, <span class="op">]</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">us_res_total</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         date state      y</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 1973-01-01  U.S. 843900</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 1973-02-01  U.S. 747331</span>
@@ -108,102 +108,102 @@ Units: Million Cubic Feet"><!-- mathjax --><script src="https://cdnjs.cloudflare
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 1973-04-01  U.S. 465867</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5 1973-05-01  U.S. 326313</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6 1973-06-01  U.S. 207172</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">at_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.Date.html" class="external-link">seq.Date</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"1980-01-01"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                 to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-01-01"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                 length.out <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">at_y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html" class="external-link">pretty</a></span><span class="op">(</span><span class="va">us_res_total</span><span class="op">$</span><span class="va">y</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span><span class="op">]</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">us_res_total</span><span class="op">$</span><span class="va">date</span>, <span class="va">us_res_total</span><span class="op">$</span><span class="va">y</span>,</span></span>
-<span class="r-in"><span>     col <span class="op">=</span> <span class="st">"#1f77b4"</span>,</span></span>
-<span class="r-in"><span>     type <span class="op">=</span> <span class="st">"l"</span>,</span></span>
-<span class="r-in"><span>     frame.plot <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
-<span class="r-in"><span>     axes <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
-<span class="r-in"><span>     panel.first <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span>h <span class="op">=</span> <span class="va">at_y</span>, col <span class="op">=</span> <span class="st">"grey80"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>     main <span class="op">=</span> <span class="st">"US Natural Gas Residential Consumption"</span>,</span></span>
-<span class="r-in"><span>     xlab <span class="op">=</span> <span class="st">"Source: https://www.eia.gov/"</span>,</span></span>
-<span class="r-in"><span>     ylab <span class="op">=</span> <span class="st">"Million Cubic Feet"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span>side <span class="op">=</span><span class="fl">1</span>, text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">at_x</span>, format <span class="op">=</span> <span class="st">"%Y %b"</span><span class="op">)</span>, at <span class="op">=</span> <span class="va">at_x</span>,</span></span>
-<span class="r-in"><span>      col <span class="op">=</span> <span class="st">"grey20"</span>, line <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span>side <span class="op">=</span><span class="fl">2</span>, text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">at_y</span>, scientific <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>, at <span class="op">=</span> <span class="va">at_y</span>,</span></span>
-<span class="r-in"><span>      col <span class="op">=</span> <span class="st">"grey20"</span>, line <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="va">at_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.Date.html" class="external-link">seq.Date</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"1980-01-01"</span><span class="op">)</span>,</span>
+<span class="r-in">                 to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-01-01"</span><span class="op">)</span>,</span>
+<span class="r-in">                 length.out <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="va">at_y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html" class="external-link">pretty</a></span><span class="op">(</span><span class="va">us_res_total</span><span class="op">$</span><span class="va">y</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span><span class="op">]</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">us_res_total</span><span class="op">$</span><span class="va">date</span>, <span class="va">us_res_total</span><span class="op">$</span><span class="va">y</span>,</span>
+<span class="r-in">     col <span class="op">=</span> <span class="st">"#1f77b4"</span>,</span>
+<span class="r-in">     type <span class="op">=</span> <span class="st">"l"</span>,</span>
+<span class="r-in">     frame.plot <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span class="r-in">     axes <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span class="r-in">     panel.first <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span>h <span class="op">=</span> <span class="va">at_y</span>, col <span class="op">=</span> <span class="st">"grey80"</span><span class="op">)</span>,</span>
+<span class="r-in">     main <span class="op">=</span> <span class="st">"US Natural Gas Residential Consumption"</span>,</span>
+<span class="r-in">     xlab <span class="op">=</span> <span class="st">"Source: https://www.eia.gov/"</span>,</span>
+<span class="r-in">     ylab <span class="op">=</span> <span class="st">"Million Cubic Feet"</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span>side <span class="op">=</span><span class="fl">1</span>, text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">at_x</span>, format <span class="op">=</span> <span class="st">"%Y %b"</span><span class="op">)</span>, at <span class="op">=</span> <span class="va">at_x</span>,</span>
+<span class="r-in">      col <span class="op">=</span> <span class="st">"grey20"</span>, line <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span>side <span class="op">=</span><span class="fl">2</span>, text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">at_y</span>, scientific <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>, at <span class="op">=</span> <span class="va">at_y</span>,</span>
+<span class="r-in">      col <span class="op">=</span> <span class="st">"grey20"</span>, line <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="us_residential-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co">### Plotting the west cost consumption</span></span></span>
-<span class="r-in"><span><span class="co"># Subsetting the west cost states</span></span></span>
-<span class="r-in"><span><span class="va">wc_gas</span> <span class="op">&lt;-</span> <span class="va">us_residential</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">us_residential</span><span class="op">$</span><span class="va">state</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span></span></span>
-<span class="r-in"><span>                             <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Alaska"</span>, <span class="st">"California"</span>,</span></span>
-<span class="r-in"><span>                               <span class="st">"Oregon"</span>, <span class="st">"Washington"</span><span class="op">)</span><span class="op">)</span>,<span class="op">]</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Reshape to wide</span></span></span>
-<span class="r-in"><span><span class="va">wc_wide</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/reshape.html" class="external-link">reshape</a></span><span class="op">(</span><span class="va">wc_gas</span>, v.names <span class="op">=</span> <span class="st">"y"</span>, idvar <span class="op">=</span> <span class="st">"date"</span>,</span></span>
-<span class="r-in"><span>                   timevar <span class="op">=</span> <span class="st">"state"</span>, direction <span class="op">=</span> <span class="st">"wide"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"date"</span>,<span class="st">"Alaska"</span>, <span class="st">"California"</span>,</span></span>
-<span class="r-in"><span>                    <span class="st">"Oregon"</span>, <span class="st">"Washington"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="co"># Reorder the data</span></span></span>
-<span class="r-in"><span><span class="va">wc_wide</span> <span class="op">&lt;-</span> <span class="va">wc_wide</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span><span class="op">)</span>, <span class="op">]</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Set the plot y and x axis ticks</span></span></span>
-<span class="r-in"><span><span class="va">at_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.Date.html" class="external-link">seq.Date</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"1990-01-01"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                 to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-01-01"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                 length.out <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">at_y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html" class="external-link">pretty</a></span><span class="op">(</span><span class="va">wc_gas</span><span class="op">$</span><span class="va">y</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span><span class="op">]</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># plot the first series</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="va">wc_wide</span><span class="op">$</span><span class="va">Alaska</span>,</span></span>
-<span class="r-in"><span>     type <span class="op">=</span> <span class="st">"l"</span>,</span></span>
-<span class="r-in"><span>     frame.plot <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
-<span class="r-in"><span>     axes <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
-<span class="r-in"><span>     panel.first <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span>h <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">at_y</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"grey80"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>     main <span class="op">=</span> <span class="st">"West Cost Natural Gas Residential Consumption"</span>,</span></span>
-<span class="r-in"><span>     cex.main <span class="op">=</span> <span class="fl">1</span>, font.main <span class="op">=</span> <span class="fl">1</span>, col.main <span class="op">=</span> <span class="st">"black"</span>,</span></span>
-<span class="r-in"><span>     xlab <span class="op">=</span> <span class="st">"Source: https://www.eia.gov/"</span>,</span></span>
-<span class="r-in"><span>     font.axis <span class="op">=</span> <span class="fl">1</span>, cex.lab<span class="op">=</span> <span class="fl">0.7</span>,</span></span>
-<span class="r-in"><span>     ylab <span class="op">=</span> <span class="st">"Million Cubic Feet"</span>,</span></span>
-<span class="r-in"><span>     ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">wc_gas</span><span class="op">$</span><span class="va">y</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">wc_gas</span><span class="op">$</span><span class="va">y</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Add the 3 other series</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="va">wc_wide</span><span class="op">$</span><span class="va">California</span>, col <span class="op">=</span> <span class="st">"#1f77b4"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="va">wc_wide</span><span class="op">$</span><span class="va">Oregon</span>, col <span class="op">=</span> <span class="st">"#457b9d"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="va">wc_wide</span><span class="op">$</span><span class="va">Washington</span>, col <span class="op">=</span> <span class="st">"#ef476f"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Add the y and x axis ticks</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span>side <span class="op">=</span><span class="fl">1</span>, text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">at_x</span>, format <span class="op">=</span> <span class="st">"%Y %b"</span><span class="op">)</span>, at <span class="op">=</span> <span class="va">at_x</span>,</span></span>
-<span class="r-in"><span>      col <span class="op">=</span> <span class="st">"grey20"</span>, line <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span>side <span class="op">=</span><span class="fl">2</span>, text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">at_y</span>, scientific <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>, at <span class="op">=</span> <span class="va">at_y</span>,</span></span>
-<span class="r-in"><span>      col <span class="op">=</span> <span class="st">"grey20"</span>, line <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="fl">10</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span></span>
-<span class="r-in"><span>     <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">wc_gas</span><span class="op">$</span><span class="va">y</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>     <span class="st">"California"</span>,</span></span>
-<span class="r-in"><span>     col <span class="op">=</span> <span class="st">"#1f77b4"</span>,</span></span>
-<span class="r-in"><span>     cex <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="fl">10</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span></span>
-<span class="r-in"><span>     <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">wc_gas</span><span class="op">$</span><span class="va">y</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">-</span> <span class="fl">5000</span>,</span></span>
-<span class="r-in"><span>     <span class="st">"Washington"</span>,</span></span>
-<span class="r-in"><span>     col <span class="op">=</span> <span class="st">"#ef476f"</span>,</span></span>
-<span class="r-in"><span>     cex <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="fl">10</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span></span>
-<span class="r-in"><span>     <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">wc_gas</span><span class="op">$</span><span class="va">y</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">-</span> <span class="fl">10000</span>,</span></span>
-<span class="r-in"><span>     <span class="st">"Oregon"</span>,</span></span>
-<span class="r-in"><span>     col <span class="op">=</span> <span class="st">"#457b9d"</span>,</span></span>
-<span class="r-in"><span>     cex <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="fl">10</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span></span>
-<span class="r-in"><span>     <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">wc_gas</span><span class="op">$</span><span class="va">y</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">-</span> <span class="fl">15000</span>,</span></span>
-<span class="r-in"><span>     <span class="st">"Alaska"</span>,</span></span>
-<span class="r-in"><span>     col <span class="op">=</span> <span class="st">"black"</span>,</span></span>
-<span class="r-in"><span>     cex <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span></span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="co">### Plotting the west cost consumption</span></span>
+<span class="r-in"><span class="co"># Subsetting the west cost states</span></span>
+<span class="r-in"><span class="va">wc_gas</span> <span class="op">&lt;-</span> <span class="va">us_residential</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">us_residential</span><span class="op">$</span><span class="va">state</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span></span>
+<span class="r-in">                             <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Alaska"</span>, <span class="st">"California"</span>,</span>
+<span class="r-in">                               <span class="st">"Oregon"</span>, <span class="st">"Washington"</span><span class="op">)</span><span class="op">)</span>,<span class="op">]</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="co"># Reshape to wide</span></span>
+<span class="r-in"><span class="va">wc_wide</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/reshape.html" class="external-link">reshape</a></span><span class="op">(</span><span class="va">wc_gas</span>, v.names <span class="op">=</span> <span class="st">"y"</span>, idvar <span class="op">=</span> <span class="st">"date"</span>,</span>
+<span class="r-in">                   timevar <span class="op">=</span> <span class="st">"state"</span>, direction <span class="op">=</span> <span class="st">"wide"</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"date"</span>,<span class="st">"Alaska"</span>, <span class="st">"California"</span>,</span>
+<span class="r-in">                    <span class="st">"Oregon"</span>, <span class="st">"Washington"</span><span class="op">)</span></span>
+<span class="r-in"><span class="co"># Reorder the data</span></span>
+<span class="r-in"><span class="va">wc_wide</span> <span class="op">&lt;-</span> <span class="va">wc_wide</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span><span class="op">)</span>, <span class="op">]</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="co"># Set the plot y and x axis ticks</span></span>
+<span class="r-in"><span class="va">at_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.Date.html" class="external-link">seq.Date</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"1990-01-01"</span><span class="op">)</span>,</span>
+<span class="r-in">                 to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-01-01"</span><span class="op">)</span>,</span>
+<span class="r-in">                 length.out <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="va">at_y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html" class="external-link">pretty</a></span><span class="op">(</span><span class="va">wc_gas</span><span class="op">$</span><span class="va">y</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span><span class="op">]</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="co"># plot the first series</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="va">wc_wide</span><span class="op">$</span><span class="va">Alaska</span>,</span>
+<span class="r-in">     type <span class="op">=</span> <span class="st">"l"</span>,</span>
+<span class="r-in">     frame.plot <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span class="r-in">     axes <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span class="r-in">     panel.first <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span>h <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">at_y</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"grey80"</span><span class="op">)</span>,</span>
+<span class="r-in">     main <span class="op">=</span> <span class="st">"West Cost Natural Gas Residential Consumption"</span>,</span>
+<span class="r-in">     cex.main <span class="op">=</span> <span class="fl">1</span>, font.main <span class="op">=</span> <span class="fl">1</span>, col.main <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span class="r-in">     xlab <span class="op">=</span> <span class="st">"Source: https://www.eia.gov/"</span>,</span>
+<span class="r-in">     font.axis <span class="op">=</span> <span class="fl">1</span>, cex.lab<span class="op">=</span> <span class="fl">0.7</span>,</span>
+<span class="r-in">     ylab <span class="op">=</span> <span class="st">"Million Cubic Feet"</span>,</span>
+<span class="r-in">     ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">wc_gas</span><span class="op">$</span><span class="va">y</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">wc_gas</span><span class="op">$</span><span class="va">y</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="co"># Add the 3 other series</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="va">wc_wide</span><span class="op">$</span><span class="va">California</span>, col <span class="op">=</span> <span class="st">"#1f77b4"</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="va">wc_wide</span><span class="op">$</span><span class="va">Oregon</span>, col <span class="op">=</span> <span class="st">"#457b9d"</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="va">wc_wide</span><span class="op">$</span><span class="va">Washington</span>, col <span class="op">=</span> <span class="st">"#ef476f"</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="co"># Add the y and x axis ticks</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span>side <span class="op">=</span><span class="fl">1</span>, text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">at_x</span>, format <span class="op">=</span> <span class="st">"%Y %b"</span><span class="op">)</span>, at <span class="op">=</span> <span class="va">at_x</span>,</span>
+<span class="r-in">      col <span class="op">=</span> <span class="st">"grey20"</span>, line <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span>side <span class="op">=</span><span class="fl">2</span>, text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">at_y</span>, scientific <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>, at <span class="op">=</span> <span class="va">at_y</span>,</span>
+<span class="r-in">      col <span class="op">=</span> <span class="st">"grey20"</span>, line <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="fl">10</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span class="r-in">     <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">wc_gas</span><span class="op">$</span><span class="va">y</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span class="r-in">     <span class="st">"California"</span>,</span>
+<span class="r-in">     col <span class="op">=</span> <span class="st">"#1f77b4"</span>,</span>
+<span class="r-in">     cex <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="fl">10</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span class="r-in">     <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">wc_gas</span><span class="op">$</span><span class="va">y</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">-</span> <span class="fl">5000</span>,</span>
+<span class="r-in">     <span class="st">"Washington"</span>,</span>
+<span class="r-in">     col <span class="op">=</span> <span class="st">"#ef476f"</span>,</span>
+<span class="r-in">     cex <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="fl">10</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span class="r-in">     <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">wc_gas</span><span class="op">$</span><span class="va">y</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">-</span> <span class="fl">10000</span>,</span>
+<span class="r-in">     <span class="st">"Oregon"</span>,</span>
+<span class="r-in">     col <span class="op">=</span> <span class="st">"#457b9d"</span>,</span>
+<span class="r-in">     cex <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">wc_wide</span><span class="op">$</span><span class="va">date</span>, <span class="fl">10</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span class="r-in">     <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">wc_gas</span><span class="op">$</span><span class="va">y</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">-</span> <span class="fl">15000</span>,</span>
+<span class="r-in">     <span class="st">"Alaska"</span>,</span>
+<span class="r-in">     col <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span class="r-in">     cex <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="us_residential-2.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
@@ -219,7 +219,8 @@ Units: Million Cubic Feet"><!-- mathjax --><script src="https://cdnjs.cloudflare
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.1.</p>
 </div>
 
       </footer></div>
