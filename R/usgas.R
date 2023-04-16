@@ -8,7 +8,7 @@
 #' \describe{
 #'   \item{date}{A Date, the month and year of the observation (the day set by default to 1st of the month)}
 #'   \item{process}{The process type description}
-#'   \item{state}{the US state name}
+#'   \item{state}{The US state name}
 #'   \item{state_abb}{the US state abbreviation}
 #'   \item{y}{A numeric, the monthly natural gas residential consumption in a million cubic feet}
 #'   }
@@ -27,7 +27,6 @@
 #' - Pipeline Fuel Consumption
 #' - Residential Consumption
 #' - Vehicle Fuel Consumption
-#' @export
 #'
 #' @examples
 #'
