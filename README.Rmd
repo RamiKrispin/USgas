@@ -21,11 +21,26 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-The **USgas** package provides an overview of demand for natural gas in the US in a time-series format. That includes the following datasets:
+The **USgas** package provides an overview of demand for natural gas in the US in a time-series format. That includes the following dataset:
+
+* `usgas` - The monthly consumption of natural gas in the US/state level by end-use since 1973 for US level and 1989 for state level. It includes the following end-use categories:
+
+   - Commercial Consumption
+   - Delivered to Consumers
+   - Electric Power Consumption
+   - Industrial Consumption
+   - Lease and Plant Fuel Consumption
+   - Pipeline Fuel Consumption
+   - Residential Consumption
+   - Vehicle Fuel Consumption
+
+The package also includes the following datasets, from previous release:
 
 * `us_total` - The US annual natural gas consumption by state-level between 1997 and 2019, and aggregate level between 1949 and 2019
 * `us_monthly` - The monthly demand for natural gas in the US between 2001 and 2020
 * `us_residential` - The US monthly natural gas residential consumption by state and aggregate level between 1989 and 2020
+
+The `us_total`, `us_monthly`, and `us_residential` can be derived out of the `usgas` dataset. Therefore, those datasets in the process of deprication and will be removed in the next release to CRAN.
 
 Data source: The US Energy Information Administration [API](https://www.eia.gov/)
 
@@ -47,106 +62,87 @@ devtools::install_github("RamiKrispin/USgas")
 ```
 ## Example
 
-Plotting the consumption of natural gas in New England states:
+Let's load the data:
 
 ```{r}
-data(us_total)
+data("usgas")
 
-str(us_total)
+head(usgas)
 
-head(us_total)
+str(usgas)
 ```
 
 
-Subsetting the New England states:
+Plotting the residential consumption of natural gas in the US:
+``` r
+library(plotly)
 
-```{r}
+us_res <- usgas[which(usgas$state == "U.S." & usgas$process == "Residential Consumption"), ]
+
+plot_ly(data = us_res,
+        x = ~ date,
+        y = ~ y,
+        type = "scatter",
+        mode = "line") |>
+  layout(title = "US Monthly Residential Consumption",
+         yaxis = list(title = "MMCF"),
+         xaxis = list(title = "Source: EIA API"))
+```
+
+```{r, include = FALSE}
+library(plotly)
+
+us_res <- usgas[which(usgas$state == "U.S." & usgas$process == "Residential Consumption"), ]
+
+p1 <- plot_ly(data = us_res,
+        x = ~ date,
+        y = ~ y,
+        type = "scatter",
+        mode = "line") |>
+  layout(title = "US Monthly Natural Gas Consumption by Residential Consumers",
+         yaxis = list(title = "MMCF"),
+         xaxis = list(title = "Source: EIA API"))
+orca(p1, "man/figures/us_res.svg")
+```
+
+<img src="man/figures/us_res.svg" width="100%" />
+
+
+
+Plotting the total monthly natural gas delivered in the New England states:
+
+```r
 ne <- c("Connecticut", "Maine", "Massachusetts",
         "New Hampshire", "Rhode Island", "Vermont")
-ne_gas <-  us_total[which(us_total$state %in% ne),]
+ne_gas <-  usgas[which(usgas$state %in% ne & usgas$process == "Delivered to Consumers"),]
 
-ne_wide <- reshape(ne_gas, v.names = "y", idvar = "year",
-                   timevar = "state", direction = "wide")
-ne_wide <- ne_wide[order(ne_wide$year), ]
-
-names(ne_wide) <- c("year",ne)
-
-head(ne_wide)
+plot_ly(data = ne_gas,
+        x = ~ date,
+        y = ~ y,
+        color = ~ state,
+        type = "scatter",
+        mode = "line") |>
+  layout(title = "Total Natrual Gas Delivered to Consumers in New England States",
+         yaxis = list(title = "MMCF"),
+         xaxis = list(title = "Source: EIA API"))
 ```
 
-Plotting the states series:
+```{r , include = FALSE}
+ne <- c("Connecticut", "Maine", "Massachusetts",
+        "New Hampshire", "Rhode Island", "Vermont")
+ne_gas <-  usgas[which(usgas$state %in% ne & usgas$process == "Delivered to Consumers"),]
 
-```{r}
-# Set the y and x axis ticks
-at_x <- seq(from = 2000, to = 2020, by = 5)
+p2 <- plot_ly(data = ne_gas,
+        x = ~ date,
+        y = ~ y,
+        color = ~ state,
+        type = "scatter",
+        mode = "line") |>
+  layout(title = "Total Natrual Gas Delivered to Consumers in New England States",
+         yaxis = list(title = "MMCF"),
+         xaxis = list(title = "Source: EIA API"))
 
-at_y <- pretty(ne_gas$y)[c(2, 4, 6)]
-
-# plot the first series
-plot(ne_wide$year, ne_wide$Connecticut,
-     type = "l",
-     col = "#073b4c",
-     frame.plot = FALSE,
-     axes = FALSE,
-     panel.first = abline(h = c(at_y), col = "grey80"),
-     main = "New England Annual Natural Gas Consumption by State",
-     cex.main = 1.2, font.main = 1, col.main = "black",
-     xlab = "Source: https://www.eia.gov/",
-     font.axis = 1, cex.lab= 1,
-     ylab = "Million Cubic Feet",
-     ylim = c(min(ne_gas$y, na.rm = TRUE), max(ne_gas$y, na.rm = TRUE)),
-     xlim = c(min(ne_gas$year), max(ne_gas$year) + 3))
-
-# Add the 5 other series
-lines(ne_wide$year, ne_wide$Maine, col = "#1f77b4")
-lines(ne_wide$year, ne_wide$Massachusetts, col = "#118ab2")
-lines(ne_wide$year, ne_wide$`New Hampshire`, col = "#06d6a0")
-lines(ne_wide$year, ne_wide$`Rhode Island`, col = "#ffd166")
-lines(ne_wide$year, ne_wide$Vermont, col = "#ef476f")
-
-# Add the y and x axis ticks
-
-mtext(side =1, text = format(at_x, nsmall=0), at = at_x,
-      col = "grey20", line = 1, cex = 0.8)
-
-mtext(side =2, text = format(at_y, scientific = FALSE), at = at_y,
-      col = "grey20", line = 1, cex = 0.8)
-
-# Add text 
-text(max(ne_wide$year) + 2,
-     tail(ne_wide$Connecticut,1),
-     "Connecticut",
-     col = "#073b4c",
-     cex = 0.7)
-
-text(max(ne_wide$year) + 2,
-     tail(ne_wide$Maine,1) * 0.95,
-     "Maine",
-     col = "#1f77b4",
-     cex = 0.7)
-
-text(max(ne_wide$year) + 2,
-     tail(ne_wide$Massachusetts,1),
-     "Massachusetts",
-     col = "#118ab2",
-     cex = 0.7)
-
-text(max(ne_wide$year) + 2,
-     tail(ne_wide$`New Hampshire`,1) * 1.1,
-     "New Hampshire",
-     col = "#06d6a0",
-     cex = 0.7)
-
-text(max(ne_wide$year) + 2,
-     tail(ne_wide$`Rhode Island`,1) * 1.05,
-     "Rhode Island",
-     col = "#ffd166",
-     cex = 0.7)
-
-text(max(ne_wide$year) + 2,
-     tail(ne_wide$Vermont,1),
-     "Vermont",
-     col = "#ef476f",
-     cex = 0.7)
+orca(p2, "man/figures/new_england.svg")
 ```
 
+<img src="man/figures/new_england.svg" width="100%" />
